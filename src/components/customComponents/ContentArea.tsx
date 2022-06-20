@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -26,7 +26,16 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function ContentArea(props: any) {
   const clickedName = props.clickedItem;
 
+  const [clientId, setClientId] = useState("");
+
   console.log(clickedName);
+
+  const setId = (id: string) => {
+    setClientId(id);
+    console.log("logged from Content Area", id);
+  };
+
+  console.log(clientId);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -37,10 +46,12 @@ export default function ContentArea(props: any) {
             {clickedName === "Create Client" && (
               <CreateClient setPage={props.setNewPage} />
             )}
-            {clickedName === "Follow Up" && <FollowUp />}
+            {clickedName === "Follow Up" && <FollowUp id={clientId} />}
             {clickedName === "Follow Up List" && <FollowUpList />}
             {clickedName === "Marked Clients" && <MarkedClients />}
-            {clickedName === "Client List" && <ClientList />}
+            {clickedName === "Client List" && (
+              <ClientList clientId={setId} setPage={props.setNewPage} />
+            )}
             {clickedName === "Upcoming Orders" && <UpcomingOrders />}
             {clickedName === "Admin Tools" && <AdminTools />}
             {clickedName === "Logout" && <SimpleBackdrop />}

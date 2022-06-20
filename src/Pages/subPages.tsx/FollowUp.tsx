@@ -16,7 +16,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function FollowUp() {
+export default function FollowUp(props: any) {
+  console.log("at follow up level aaaaaaaaaaaaaaaaaaaaa", props.id);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

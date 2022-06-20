@@ -26,24 +26,28 @@ const CreateClient = (props: any) => {
   const [comments, setComments] = useState("");
   const [checkBox, setCheckBox] = useState("");
 
+  useEffect(() => {
+    console.log("Plant Ran!", plant);
+  }, [plant]);
+
   const postData = () => {
     axios
       .post("http://localhost:4000/v1/client", {
-        name: "Vince",
-        phone: "0711111111",
-        email: "vince@vice.om",
-        plant: "Panagoda",
-        siteAddress: "123 Lane, Colombo, olombo 3",
+        name: name,
+        phone: phone,
+        email: email,
+        plant: plant,
+        siteAddress: siteAddress,
         projectDetails: {
-          quantity: "19",
-          source: "website",
-          pickDate: "2022-12-10",
-          productType: "Ready-Mix",
-          projectType: "Apartment",
-          projectStage: "Foundation",
-          officeAddress: "456 bjkjkdfs Vkdfkfg",
+          quantity: quantity,
+          source: source,
+          pickDate: date,
+          productType: products,
+          projectType: projectType,
+          // projectStage: projectStage,
+          officeAddress: officeAddress,
         },
-        comments: "Narrow Bridge",
+        comments: comments,
       })
       .then(function (response) {
         console.log(response);

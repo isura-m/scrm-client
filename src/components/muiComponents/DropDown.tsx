@@ -32,6 +32,7 @@ export default function DropDown(props: any) {
   const [personName, setPersonName] = React.useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+    console.log(event.target.value);
     const {
       target: { value },
     } = event;
@@ -39,6 +40,7 @@ export default function DropDown(props: any) {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+    props.setState(event.target.value);
   };
 
   return (

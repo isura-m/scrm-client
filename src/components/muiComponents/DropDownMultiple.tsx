@@ -23,6 +23,7 @@ export default function DropDownMultiple(props: any) {
   const [personName, setPersonName] = React.useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+    console.log("MultiSelect", event.target.value);
     const {
       target: { value },
     } = event;

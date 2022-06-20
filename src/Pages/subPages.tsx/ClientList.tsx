@@ -21,13 +21,9 @@ interface Column {
 
 const columns: any[] = [
   { id: "name", label: "Name", minWidth: 100 },
-
   { id: "phone", label: "Phone", minWidth: 100 },
-
   { id: "quantity", label: "Quantity", minWidth: 170 },
-
   { id: "plant", label: "Plant", minWidth: 100 },
-
   { id: "siteAddress", label: "Site Address", minWidth: 100 },
 ];
 
@@ -39,7 +35,7 @@ interface Data {
   density: number;
 }
 
-export default function ClientList() {
+export default function ClientList(props: any) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState<any[]>([]);
@@ -92,11 +88,12 @@ export default function ClientList() {
                   // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row: any) => {
                     const newRow = { ...row, ...row.projectDetails };
-
                     return (
                       <TableRow
                         onClick={() => {
-                          console.log("ice");
+                          props.clientId(row._id);
+                          console.log(row._id);
+                          props.setPage("Follow Up");
                         }}
                         hover
                         role="checkbox"
