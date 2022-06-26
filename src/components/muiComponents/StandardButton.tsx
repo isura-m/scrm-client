@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 
 interface BasicButtonsProps {
   label: string;
-  captureClick: 
+  captureClick: () => void;
 }
 
 export default function BasicButtons(props: any) {
