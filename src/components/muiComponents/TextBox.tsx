@@ -1,6 +1,11 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 
+interface TextBoxProps {
+  label: string;
+  setState: (setState: string) => void;
+}
+
 export default function TextBox(props: any) {
   return (
     <TextField

@@ -19,7 +19,14 @@ interface Column {
   format?: (value: number) => string;
 }
 
-const columns: any[] = [
+interface Headings {
+  id: string;
+  label: string;
+  minWidth: number;
+  align?: any;
+}
+
+const columns: Headings[] = [
   { id: "name", label: "Name", minWidth: 100 },
   { id: "phone", label: "Phone", minWidth: 100 },
   { id: "quantity", label: "Quantity", minWidth: 170 },

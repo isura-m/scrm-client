@@ -2,6 +2,11 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
+interface BasicButtonsProps {
+  label: string;
+  captureClick: 
+}
+
 export default function BasicButtons(props: any) {
   const handleClick = () => {
     props.captureClick();

@@ -5,6 +5,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
+interface StandardMenuProps {
+  clickedItem: (clickedItem: string) => void;
+}
+
 const StandardMenu = (props: any) => {
   return (
     <>

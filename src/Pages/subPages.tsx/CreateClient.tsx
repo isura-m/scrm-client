@@ -10,7 +10,11 @@ import SingleCheckbox from "../../components/muiComponents/SingleCheckBox";
 import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 
-const CreateClient = (props: any) => {
+interface CreateClientProps {
+  setPage: (pageName: string) => void;
+}
+
+const CreateClient = (props: CreateClientProps) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");

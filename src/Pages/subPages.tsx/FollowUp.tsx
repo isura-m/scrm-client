@@ -16,7 +16,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function FollowUp(props: any) {
+interface FollowUpProps {
+  id: string;
+}
+
+export default function FollowUp(props: FollowUpProps) {
   console.log("at follow up level aaaaaaaaaaaaaaaaaaaaa", props.id);
   return (
     <Box sx={{ flexGrow: 1 }}>

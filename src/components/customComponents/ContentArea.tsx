@@ -23,7 +23,12 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function ContentArea(props: any) {
+interface ContentAreaProps {
+  setNewPage: (newPage: string) => void;
+  clickedItem: string;
+}
+
+export default function ContentArea(props: ContentAreaProps) {
   const clickedName = props.clickedItem;
 
   const [clientId, setClientId] = useState("");
