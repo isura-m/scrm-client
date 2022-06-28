@@ -18,7 +18,13 @@ const MenuProps = {
   },
 };
 
-export default function DropDownMultiple(props: any) {
+interface DropDownMultipleProps {
+  label: string;
+  list: string[];
+  setState: (state: string) => void;
+}
+
+export default function DropDownMultiple(props: DropDownMultipleProps) {
   const names = props.list;
   const [personName, setPersonName] = React.useState<string[]>([]);
 

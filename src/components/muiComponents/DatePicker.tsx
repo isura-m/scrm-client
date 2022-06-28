@@ -8,7 +8,12 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
-export default function MaterialUIPickers(props: any) {
+interface DatePickerProps {
+  label: string;
+  setState: (state: any) => void;
+}
+
+export default function DatePicker(props: any) {
   const [value, setValue] = React.useState<Date | null>(null);
 
   const handleChange = (newValue: Date | null) => {

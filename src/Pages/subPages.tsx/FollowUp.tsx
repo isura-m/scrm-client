@@ -1,8 +1,9 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import axios from "axios";
 
 import ClientInfo from "../../components/customComponents/ClientInfo";
 import FollowUpUpdate from "../../components/customComponents/FollowUpUpdate";
@@ -21,6 +22,18 @@ interface FollowUpProps {
 }
 
 export default function FollowUp(props: FollowUpProps) {
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/v1/client/" + props.id)
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   console.log("at follow up level aaaaaaaaaaaaaaaaaaaaa", props.id);
   return (
     <Box sx={{ flexGrow: 1 }}>

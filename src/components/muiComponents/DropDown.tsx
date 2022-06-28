@@ -26,7 +26,13 @@ function getStyles(name: string, personName: string[], theme: Theme) {
   };
 }
 
-export default function DropDown(props: any) {
+interface DropDownProps {
+  label: string;
+  list: string[];
+  setState: (state: string) => void;
+}
+
+export default function DropDown(props: DropDownProps) {
   const names: string[] = props.list;
   const theme = useTheme();
   const [personName, setPersonName] = React.useState<string[]>([]);
@@ -40,7 +46,7 @@ export default function DropDown(props: any) {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
-    props.setState(event.target.value);
+    props.setState(event.target.value as string);
   };
 
   return (

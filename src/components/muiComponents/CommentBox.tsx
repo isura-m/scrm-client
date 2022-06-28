@@ -1,11 +1,18 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 
-export default function CommentBox(props: any) {
+interface CommentBoxProps {
+  label: string;
+  setState?: (state: any) => void;
+}
+
+export default function CommentBox(props: CommentBoxProps) {
   return (
     <TextField
       onChange={(e) => {
-        props.setState(e.target.value);
+        if (props.setState) {
+          props.setState(e.target.value);
+        }
       }}
       id="outlined-textarea"
       label={props.label}
