@@ -32,7 +32,7 @@ interface DropDownProps {
   setState: (state: string) => void;
 }
 
-export default function DropDown(props: DropDownProps) {
+export default function DropDown(props: any) {
   const names: string[] = props.list;
   const theme = useTheme();
   const [personName, setPersonName] = React.useState<string[]>([]);
